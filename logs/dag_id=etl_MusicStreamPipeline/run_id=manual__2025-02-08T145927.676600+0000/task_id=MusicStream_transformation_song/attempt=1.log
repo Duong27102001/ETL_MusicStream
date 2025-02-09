@@ -1,0 +1,38 @@
+[2025-02-08T14:59:29.209+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-08T14:59:29.238+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_MusicStreamPipeline.MusicStream_transformation_song manual__2025-02-08T14:59:27.676600+00:00 [queued]>
+[2025-02-08T14:59:29.434+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_MusicStreamPipeline.MusicStream_transformation_song manual__2025-02-08T14:59:27.676600+00:00 [queued]>
+[2025-02-08T14:59:29.435+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-02-08T14:59:29.447+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): MusicStream_transformation_song> on 2025-02-08 14:59:27.676600+00:00
+[2025-02-08T14:59:29.456+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2405) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-08T14:59:29.457+0000] {standard_task_runner.py:63} INFO - Started process 2410 to run task
+[2025-02-08T14:59:29.456+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_MusicStreamPipeline', 'MusicStream_transformation_song', 'manual__2025-02-08T14:59:27.676600+00:00', '--job-id', '262', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpomw92d51']
+[2025-02-08T14:59:29.458+0000] {standard_task_runner.py:91} INFO - Job 262: Subtask MusicStream_transformation_song
+[2025-02-08T14:59:29.503+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_MusicStreamPipeline.MusicStream_transformation_song manual__2025-02-08T14:59:27.676600+00:00 [running]> on host 35ef1ca6714b
+[2025-02-08T14:59:29.598+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Le Huynh Thanh Duong' AIRFLOW_CTX_DAG_ID='etl_MusicStreamPipeline' AIRFLOW_CTX_TASK_ID='MusicStream_transformation_song' AIRFLOW_CTX_EXECUTION_DATE='2025-02-08T14:59:27.676600+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-08T14:59:27.676600+00:00'
+[2025-02-08T14:59:29.600+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-08T14:59:29.639+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-08T14:59:29.640+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/etls/transform.py", line 21, in process_song
+    os.remove(stg_song_path)
+PermissionError: [Errno 13] Permission denied: './data/processed/stg_song.csv'
+[2025-02-08T14:59:29.653+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=etl_MusicStreamPipeline, task_id=MusicStream_transformation_song, execution_date=20250208T145927, start_date=20250208T145929, end_date=20250208T145929
+[2025-02-08T14:59:29.666+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 262 for task MusicStream_transformation_song ([Errno 13] Permission denied: './data/processed/stg_song.csv'; 2410)
+[2025-02-08T14:59:29.711+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-02-08T14:59:29.740+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-08T14:59:29.742+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,39 @@
+[2025-02-09T03:53:47.249+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-09T03:53:47.282+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_MusicStreamPipeline.MusicStream_extraction_song_data manual__2025-02-09T03:53:46.130078+00:00 [queued]>
+[2025-02-09T03:53:47.466+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_MusicStreamPipeline.MusicStream_extraction_song_data manual__2025-02-09T03:53:46.130078+00:00 [queued]>
+[2025-02-09T03:53:47.466+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-02-09T03:53:47.481+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): MusicStream_extraction_song_data> on 2025-02-09 03:53:46.130078+00:00
+[2025-02-09T03:53:47.497+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=435) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-09T03:53:47.494+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_MusicStreamPipeline', 'MusicStream_extraction_song_data', 'manual__2025-02-09T03:53:46.130078+00:00', '--job-id', '377', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpgibe94ss']
+[2025-02-09T03:53:47.497+0000] {standard_task_runner.py:63} INFO - Started process 442 to run task
+[2025-02-09T03:53:47.498+0000] {standard_task_runner.py:91} INFO - Job 377: Subtask MusicStream_extraction_song_data
+[2025-02-09T03:53:47.544+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_MusicStreamPipeline.MusicStream_extraction_song_data manual__2025-02-09T03:53:46.130078+00:00 [running]> on host e5529003cf96
+[2025-02-09T03:53:47.642+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Le Huynh Thanh Duong' AIRFLOW_CTX_DAG_ID='etl_MusicStreamPipeline' AIRFLOW_CTX_TASK_ID='MusicStream_extraction_song_data' AIRFLOW_CTX_EXECUTION_DATE='2025-02-09T03:53:46.130078+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-09T03:53:46.130078+00:00'
+[2025-02-09T03:53:47.643+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-09T03:53:48.015+0000] {logging_mixin.py:188} WARNING - /opt/***/etls/extract.py:39 FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+[2025-02-09T03:53:48.024+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-09T03:53:48.025+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/etls/extract.py", line 47, in extract_data
+    os.remove(path_csv)
+PermissionError: [Errno 13] Permission denied: './data/processed/song_data.csv'
+[2025-02-09T03:53:48.037+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=etl_MusicStreamPipeline, task_id=MusicStream_extraction_song_data, execution_date=20250209T035346, start_date=20250209T035347, end_date=20250209T035348
+[2025-02-09T03:53:48.051+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 377 for task MusicStream_extraction_song_data ([Errno 13] Permission denied: './data/processed/song_data.csv'; 442)
+[2025-02-09T03:53:48.073+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-02-09T03:53:48.098+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-09T03:53:48.101+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

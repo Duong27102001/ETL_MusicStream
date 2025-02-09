@@ -1,0 +1,44 @@
+[2025-02-09T05:35:40.649+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-09T05:35:40.676+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_MusicStreamPipeline.MusicStream_delete manual__2025-02-09T05:35:39.406281+00:00 [queued]>
+[2025-02-09T05:35:40.795+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_MusicStreamPipeline.MusicStream_delete manual__2025-02-09T05:35:39.406281+00:00 [queued]>
+[2025-02-09T05:35:40.796+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-02-09T05:35:40.813+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): MusicStream_delete> on 2025-02-09 05:35:39.406281+00:00
+[2025-02-09T05:35:40.819+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1934) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-09T05:35:40.819+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_MusicStreamPipeline', 'MusicStream_delete', 'manual__2025-02-09T05:35:39.406281+00:00', '--job-id', '467', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpyczhs1ny']
+[2025-02-09T05:35:40.821+0000] {standard_task_runner.py:63} INFO - Started process 1936 to run task
+[2025-02-09T05:35:40.821+0000] {standard_task_runner.py:91} INFO - Job 467: Subtask MusicStream_delete
+[2025-02-09T05:35:40.868+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_MusicStreamPipeline.MusicStream_delete manual__2025-02-09T05:35:39.406281+00:00 [running]> on host e5529003cf96
+[2025-02-09T05:35:40.947+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Le Huynh Thanh Duong' AIRFLOW_CTX_DAG_ID='etl_MusicStreamPipeline' AIRFLOW_CTX_TASK_ID='MusicStream_delete' AIRFLOW_CTX_EXECUTION_DATE='2025-02-09T05:35:39.406281+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-09T05:35:39.406281+00:00'
+[2025-02-09T05:35:40.949+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-09T05:35:40.999+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-09T05:35:41.000+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/etls/load.py", line 11, in drop_table
+    cur.execute(sql)
+psycopg2.errors.SyntaxError: syntax error at or near "FORM"
+LINE 1: DELETE FORM fact_songplays
+               ^
+
+[2025-02-09T05:35:41.012+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=etl_MusicStreamPipeline, task_id=MusicStream_delete, execution_date=20250209T053539, start_date=20250209T053540, end_date=20250209T053541
+[2025-02-09T05:35:41.021+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 467 for task MusicStream_delete (syntax error at or near "FORM"
+LINE 1: DELETE FORM fact_songplays
+               ^
+; 1936)
+[2025-02-09T05:35:41.036+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-02-09T05:35:41.054+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-09T05:35:41.060+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

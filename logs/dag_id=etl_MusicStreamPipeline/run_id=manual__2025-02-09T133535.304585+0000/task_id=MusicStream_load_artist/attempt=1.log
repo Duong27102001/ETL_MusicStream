@@ -1,0 +1,44 @@
+[2025-02-09T13:35:38.914+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-09T13:35:38.958+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_MusicStreamPipeline.MusicStream_load_artist manual__2025-02-09T13:35:35.304585+00:00 [queued]>
+[2025-02-09T13:35:39.095+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_MusicStreamPipeline.MusicStream_load_artist manual__2025-02-09T13:35:35.304585+00:00 [queued]>
+[2025-02-09T13:35:39.095+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-02-09T13:35:39.109+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): MusicStream_load_artist> on 2025-02-09 13:35:35.304585+00:00
+[2025-02-09T13:35:39.116+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2374) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-09T13:35:39.117+0000] {standard_task_runner.py:63} INFO - Started process 2378 to run task
+[2025-02-09T13:35:39.117+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_MusicStreamPipeline', 'MusicStream_load_artist', 'manual__2025-02-09T13:35:35.304585+00:00', '--job-id', '579', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpzg704tqg']
+[2025-02-09T13:35:39.119+0000] {standard_task_runner.py:91} INFO - Job 579: Subtask MusicStream_load_artist
+[2025-02-09T13:35:39.158+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_MusicStreamPipeline.MusicStream_load_artist manual__2025-02-09T13:35:35.304585+00:00 [running]> on host e231ebee4370
+[2025-02-09T13:35:39.230+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Le Huynh Thanh Duong' AIRFLOW_CTX_DAG_ID='etl_MusicStreamPipeline' AIRFLOW_CTX_TASK_ID='MusicStream_load_artist' AIRFLOW_CTX_EXECUTION_DATE='2025-02-09T13:35:35.304585+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-09T13:35:35.304585+00:00'
+[2025-02-09T13:35:39.231+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-09T13:35:39.281+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-09T13:35:39.282+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/etls/load.py", line 51, in load_dim_artists
+    cur.execute(update_artist, (row.artist_id,))
+psycopg2.errors.UndefinedTable: relation "dim_artist" does not exist
+LINE 1: UPDATE dim_artist SET rowiscurrent = FALSE, rowenddate = now...
+               ^
+
+[2025-02-09T13:35:39.291+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=etl_MusicStreamPipeline, task_id=MusicStream_load_artist, execution_date=20250209T133535, start_date=20250209T133538, end_date=20250209T133539
+[2025-02-09T13:35:39.301+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 579 for task MusicStream_load_artist (relation "dim_artist" does not exist
+LINE 1: UPDATE dim_artist SET rowiscurrent = FALSE, rowenddate = now...
+               ^
+; 2378)
+[2025-02-09T13:35:39.331+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-02-09T13:35:39.346+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-09T13:35:39.348+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
