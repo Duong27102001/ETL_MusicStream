@@ -16,18 +16,7 @@ Bộ dữ liệu gồm 2 thư mục là log_data và song_data lưu trữ các f
 Bộ dữ liệu song_data chứa thông tin về các bài hát và nghệ sĩ. 
 Record mẫu:
 ```bash
-{
-    "num_songs": 1,
-    "artist_id": "ARD7TVE1187B99BFB1",
-    "artist_latitude": null,
-    "artist_longitude": null,
-    "artist_location": "California - LA",
-    "artist_name": "Casual",
-    "song_id": "SOMZWCG12A8C13C480",
-    "title": "I Didn't Mean To",
-    "duration": 218.93179,
-    "year": 0
-}
+{"num_songs": 1,"artist_id": "ARD7TVE1187B99BFB1", "artist_latitude": null,"artist_longitude": null,"artist_location": "California - LA","artist_name": "Casual","song_id": "SOMZWCG12A8C13C480", "title": "I Didn't Mean To", "duration": 218.93179, "year": 0}
 ```
 ## Song Data Schema
 
