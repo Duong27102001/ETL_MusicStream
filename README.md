@@ -29,3 +29,18 @@ Record mẫu:
     "year": 0
 }
 ```
+## Song Data Schema
+
+| Trường             | Kiểu dữ liệu  | Mô tả |
+|--------------------|--------------|------------------------------------------------|
+| `num_songs`       | Integer      | Số lượng bài hát của nghệ sĩ (thường là 1). |
+| `artist_id`       | String       | ID duy nhất của nghệ sĩ trong hệ thống. |
+| `artist_latitude` | Float/Null   | Vĩ độ địa lý của nghệ sĩ (nếu có). |
+| `artist_longitude`| Float/Null   | Kinh độ địa lý của nghệ sĩ (nếu có). |
+| `artist_location` | String       | Địa điểm của nghệ sĩ (có thể không chuẩn hóa). |
+| `artist_name`     | String       | Tên nghệ sĩ. |
+| `song_id`         | String       | ID duy nhất của bài hát. |
+| `title`           | String       | Tiêu đề bài hát. |
+| `duration`        | Float        | Thời lượng bài hát (giây). |
+| `year`            | Integer      | Năm phát hành (nếu không có thì giá trị là 0). |
+
