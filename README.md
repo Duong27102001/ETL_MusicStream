@@ -12,6 +12,7 @@ Hệ thống ETL pipeline để xử lý dữ liệu streaming từ nền tảng
 - [Xây dựng data pipeline](#Xây-dựng-data-pipeline)
 - [video]
 ## Kiến trúc dự án
+![pipeline](../data/image/pipe.PNG)
 (#../data/image/pipe.PNG)
 ## Tổng quan về bộ dữ liệu
 Bộ dữ liệu gồm 2 thư mục là log_data và song_data lưu trữ các file json. [Dữ liệu được tham khảo từ nguồn Udacity.](https://github.com/san089/Udacity-Data-Engineering-Projects)</br>
