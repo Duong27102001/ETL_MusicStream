@@ -11,5 +11,5 @@ Dự án này cung cấp một giải pháp toàn diện về data pipeline đ�
 - [System Setup]
 - [video]
 ## Tổng quan về bộ dữ liệu
-Bộ dữ liệu gồm 2 thư mục là log_data và song_data lưu trữ các file json. Dữ liệu được kham khảo từ nguồn [Udacity](#https://github.com/san089/Udacity-Data-Engineering-Projects)
+Bộ dữ liệu gồm 2 thư mục là log_data và song_data lưu trữ các file json. Dữ liệu được kham khảo từ nguồn [Udacity](#[https://github.com/san089/Udacity-Data-Engineering-Projects](https://de-book.longdatadevlog.com/09-Brain/index.html))
 
