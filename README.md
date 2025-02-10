@@ -66,7 +66,7 @@ Bộ dữ liệu gồm 2 thư mục là log_data và song_data lưu trữ các f
 | `userId`       | String       | ID của người dùng (có thể là chuỗi rỗng nếu chưa đăng nhập). |
 
 ## Thiết kế data warehouse
-
+datawarehouse được thiết kế theo kiểu snowflake
 ## Xây dựng data pipeline
 
 
