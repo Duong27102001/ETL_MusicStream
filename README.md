@@ -1,11 +1,12 @@
 <div align="center">
-  <h1>MUSIC STREAMING ETL</h1>
+  <h1>MUSIC STREAMING DATA PIPELINE</h1>
 </div>
 
-## Overview
-Dự án này cung cấp một giải pháp toàn diện về data pipeline để extract, transformation, load (ETTL) bộ dữ liệu về music stream sang data warehouse. Quá trình này tận dụng sự kết hợp của các công cụ bao gồm apache airflow, PostgreSQL và python.
-## Table of content
-- [overview](#overview)
+## Mô tả dự án
+Hệ thống ETL pipeline để xử lý dữ liệu streaming từ nền tảng nghe nhạc, lưu trữ vào postgre data warehouse và quản lý bằng apache airflow.
+## NỘI DUNG THỰC HIỆN
+- [Mô tả dự án](#Mô-tả-dự-án)
+- [Kiến trúc dự án](#Kiến-trúc-dự-án)
 - [Tổng quan về bộ dữ liệu](#tổng-quan-về-bộ-dữ-liệu)
 - [Thiết kế data warehouse](#Thiết-kế-data-warehouse)
 - [Xây dựng data pipeline](#Xây-dựng-data-pipeline)
