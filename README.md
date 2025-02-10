@@ -62,3 +62,8 @@ Bộ dữ liệu gồm 2 thư mục là log_data và song_data lưu trữ các f
 | `userAgent`    | String       | Thông tin trình duyệt của người dùng. |
 | `userId`       | String       | ID của người dùng (có thể là chuỗi rỗng nếu chưa đăng nhập). |
 
+## Thiết kế data warehouse
+
+## Xây dựng data pipeline
+
+
