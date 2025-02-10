@@ -11,14 +11,14 @@ Dự án này cung cấp một giải pháp toàn diện về data pipeline đ�
 - [System Setup]
 - [video]
 ## Tổng quan về bộ dữ liệu
-Bộ dữ liệu gồm 2 thư mục là log_data và song_data lưu trữ các file json.</br>
-[Dữ liệu được tham khảo từ nguồn Udacity](https://github.com/san089/Udacity-Data-Engineering-Projects)</br>
-Bộ dữ liệu song_data chứa thông tin về các bài hát và nghệ sĩ. 
+Bộ dữ liệu gồm 2 thư mục là log_data và song_data lưu trữ các file json.[Dữ liệu được tham khảo từ nguồn Udacity](https://github.com/san089/Udacity-Data-Engineering-Projects)</br>
+### Song data
+Bộ dữ liệu song_data chứa thông tin về các bài hát và nghệ sĩ. </br>
 Record mẫu:
 ```bash
 {"num_songs": 1,"artist_id": "ARD7TVE1187B99BFB1", "artist_latitude": null,"artist_longitude": null,"artist_location": "California - LA","artist_name": "Casual","song_id": "SOMZWCG12A8C13C480", "title": "I Didn't Mean To", "duration": 218.93179, "year": 0}
 ```
-## Song Data Schema
+Thông tin thuộc tính
 
 | Trường             | Kiểu dữ liệu  | Mô tả |
 |--------------------|--------------|------------------------------------------------|
