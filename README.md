@@ -68,5 +68,5 @@ Bộ dữ liệu gồm 2 thư mục là log_data và song_data lưu trữ các f
 ## Thiết kế data warehouse
 ![datawarehouse](./data/image/datawarehouse.PNG)
 ## Xây dựng data pipeline
-
+![dag](./data/image/dag.PNG)
 
